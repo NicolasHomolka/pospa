@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>Earthmap.jpg</file>
+        <file>baseline.svg</file>
+    </qresource>
+</RCC>
