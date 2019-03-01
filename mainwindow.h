@@ -15,7 +15,8 @@ class: 5BHIF
 #include <airport.h>
 #include <drawservice.h>
 
-namespace Ui {
+namespace Ui
+{
 class MainWindow;
 }
 
@@ -23,11 +24,11 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
-public:
+  public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-private slots:
+  private slots:
     void on_searchDestAirportButton_clicked();
 
     void on_searchStartAirportButton_clicked();
@@ -36,13 +37,13 @@ private slots:
 
     void on_actionAbout_triggered();
 
-private:
+  private:
     Ui::MainWindow *ui;
-    QList<Airport*> airports;
-    QList<Airline*> airlines;
+    QList<Airport *> airports;
+    QList<Airline *> airlines;
     void DrawImage();
-    DatabaseService* dbService;
-    DrawService* drawService;
+    DatabaseService *dbService;
+    DrawService *drawService;
     void ResetData();
     bool IsUpper(QString s);
 };

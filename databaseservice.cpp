@@ -4,7 +4,6 @@ desc: Airline Pathfinding Example
 class: 5BHIF
  */
 
-
 #include "databaseservice.h"
 
 #include <QSqlQuery>
@@ -14,39 +13,49 @@ class: 5BHIF
 #include <airline.h>
 #include <QMap>
 
-Airport *DatabaseService::GetAirportById(int id) {
-    for (Airport* a : this->airports) {
-        if (a->GetId() == id) {
+Airport *DatabaseService::GetAirportById(int id)
+{
+    for (Airport *a : this->airports)
+    {
+        if (a->GetId() == id)
+        {
             return a;
         }
     }
     return nullptr;
 }
 
-Airline *DatabaseService::GetAirlineById(int id) {
-    for (Airline* a : this->airlines) {
-        if (a->GetId() == id) {
+Airline *DatabaseService::GetAirlineById(int id)
+{
+    for (Airline *a : this->airlines)
+    {
+        if (a->GetId() == id)
+        {
             return a;
         }
     }
     return nullptr;
 }
 
-DatabaseService::DatabaseService() {
-
+DatabaseService::DatabaseService()
+{
 }
 
-bool DatabaseService::CreateConnection() {
+bool DatabaseService::CreateConnection()
+{
     this->db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("AirlineRoutes.db");
     return db.open();
 }
 
-QList<Airline*> DatabaseService::GetAirlineData() {
-    if (this->airlines.count() <= 0) {
+QList<Airline *> DatabaseService::GetAirlineData()
+{
+    if (this->airlines.count() <= 0)
+    {
         QSqlQuery query("select * from Airline order by name");
         query.exec();
-        while (query.next()) {
+        while (query.next())
+        {
             int id = query.value(0).toInt();
             QString name = query.value(1).toString();
             int alliance_id = query.value(2).toInt();
@@ -54,16 +63,18 @@ QList<Airline*> DatabaseService::GetAirlineData() {
         }
     }
 
-
     return airlines;
 }
 
-QList<Airport*> DatabaseService::GetAirportData() {
+QList<Airport *> DatabaseService::GetAirportData()
+{
     std::cout << "Test" << std::endl;
-    if (this->airports.count() <= 0) {
+    if (this->airports.count() <= 0)
+    {
         QSqlQuery query("select * from Airport");
         query.exec();
-        while (query.next()) {
+        while (query.next())
+        {
             int id = query.value(0).toInt();
             float latitude = query.value(1).toFloat();
             float longitude = query.value(2).toFloat();
@@ -75,14 +86,16 @@ QList<Airport*> DatabaseService::GetAirportData() {
     return airports;
 }
 
-QList<QPair<Airport*, Airline*>> DatabaseService::GetRouteInformationWithId(int id) {
-    QList<QPair < Airport*, Airline*>> pairs;
+QList<QPair<Airport *, Airline *>> DatabaseService::GetRouteInformationWithId(int id)
+{
+    QList<QPair<Airport *, Airline *>> pairs;
     QSqlQuery query("select distinct airline, airport2 from Route where airport1=" + QString::number(id));
     query.exec();
-    while (query.next()) {
+    while (query.next())
+    {
         int airlineId = query.value(0).toInt();
         int airport2Id = query.value(1).toInt();
-        pairs.push_back(QPair<Airport*, Airline*>(GetAirportById(airport2Id), GetAirlineById(airlineId)));
+        pairs.push_back(QPair<Airport *, Airline *>(GetAirportById(airport2Id), GetAirlineById(airlineId)));
     }
 
     return pairs;

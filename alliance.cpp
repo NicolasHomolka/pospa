@@ -4,17 +4,18 @@ desc: Airline Pathfinding Example
 class: 5BHIF
  */
 
-
 #include "alliance.h"
 
-Alliance::Alliance() {
-
+Alliance::Alliance()
+{
 }
 
-QString Alliance::GetName() {
+QString Alliance::GetName()
+{
     return this->name;
 }
 
-int Alliance::GetId() {
+int Alliance::GetId()
+{
     return this->id;
 }

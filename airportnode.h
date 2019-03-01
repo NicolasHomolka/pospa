@@ -12,27 +12,29 @@ class: 5BHIF
 #include <QPair>
 #include <QList>
 
-class AirportNode {
-private:
-    Airport* current;
+class AirportNode
+{
+  private:
+    Airport *current;
     int distance;
-    AirportNode* previous;
+    AirportNode *previous;
     bool visited;
-    Airline* airline;
-    QList<QPair<AirportNode*, QPair<int, Airline*>>>* previouses;
-public:
-    AirportNode(Airport* current, int distance, AirportNode* previous);
+    Airline *airline;
+    QList<QPair<AirportNode *, QPair<int, Airline *>>> *previouses;
+
+  public:
+    AirportNode(Airport *current, int distance, AirportNode *previous);
     void SetDistance(int value);
-    AirportNode* GetPrevious();
-    Airport* GetCurrent();
+    AirportNode *GetPrevious();
+    Airport *GetCurrent();
     int GetDistance();
     bool IsVisited();
-    Airline* GetAirline();
+    Airline *GetAirline();
     void SetVisited(bool visited);
-    void SetPrevious(AirportNode* node);
-    void SetAirline(Airline* airline);
-    void SetPreviouses(QList<QPair<AirportNode*, QPair<int, Airline*>>>* value);
-    QList<QPair<AirportNode*, QPair<int, Airline*>>>* GetPreviouses();
+    void SetPrevious(AirportNode *node);
+    void SetAirline(Airline *airline);
+    void SetPreviouses(QList<QPair<AirportNode *, QPair<int, Airline *>>> *value);
+    QList<QPair<AirportNode *, QPair<int, Airline *>>> *GetPreviouses();
 };
 
 #endif // AIRPORTNODE_H

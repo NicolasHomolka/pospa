@@ -4,35 +4,38 @@ desc: Airline Pathfinding Example
 class: 5BHIF
  */
 
-
-
 #include "airport.h"
 
-Airport::Airport() {
-
+Airport::Airport()
+{
 }
 
 Airport::Airport(int id, float latitude, float longitude, QString name, QString idata)
-: id(id), latitude(latitude), longitude(longitude), name(name), idata(idata) {
-
+    : id(id), latitude(latitude), longitude(longitude), name(name), idata(idata)
+{
 }
 
-QString Airport::GetName() {
+QString Airport::GetName()
+{
     return this->name;
 }
 
-int Airport::GetId() {
+int Airport::GetId()
+{
     return this->id;
 }
 
-float Airport::GetLatitude() {
+float Airport::GetLatitude()
+{
     return this->latitude;
 }
 
-float Airport::GetLongitude() {
+float Airport::GetLongitude()
+{
     return this->longitude;
 }
 
-QString Airport::GetIData() {
+QString Airport::GetIData()
+{
     return this->idata;
 }

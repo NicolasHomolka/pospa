@@ -13,19 +13,21 @@ class: 5BHIF
 #include <airline.h>
 #include <airport.h>
 
-class DatabaseService {
-private:
+class DatabaseService
+{
+  private:
     QSqlDatabase db;
-    QList<Airline*> airlines;
-    QList<Airport*> airports;
+    QList<Airline *> airlines;
+    QList<Airport *> airports;
     Airport *GetAirportById(int id);
     Airline *GetAirlineById(int id);
-public:
+
+  public:
     DatabaseService();
     bool CreateConnection();
-    QList<Airline*> GetAirlineData();
-    QList<Airport*> GetAirportData();
-    QList<QPair<Airport*, Airline*>> GetRouteInformationWithId(int id);
+    QList<Airline *> GetAirlineData();
+    QList<Airport *> GetAirportData();
+    QList<QPair<Airport *, Airline *>> GetRouteInformationWithId(int id);
 };
 
 #endif // DATABASESERVICE_H

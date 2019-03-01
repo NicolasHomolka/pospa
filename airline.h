@@ -9,18 +9,19 @@ class: 5BHIF
 #include <QString>
 #include "alliance.h"
 
-class Airline {
+class Airline
+{
 private:
-    QString name;
-    int id;
-    int alliance_id;
+  QString name;
+  int id;
+  int alliance_id;
 
 public:
-    Airline();
-    Airline(QString name, int id, int alliance_id);
-    QString GetName();
-    int GetId();
-    int GetAllianceId();
+  Airline();
+  Airline(QString name, int id, int alliance_id);
+  QString GetName();
+  int GetId();
+  int GetAllianceId();
 };
 
 #endif // AIRLINE_H
